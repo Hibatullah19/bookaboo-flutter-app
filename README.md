@@ -1,50 +1,78 @@
-# BookaBoo 📚
+# 📚 BookaBoo
 
-A playful, colorful storybook app for kids, built with Flutter, Riverpod, freezed and GoRouter using a feature-first architecture.
+A playful, colorful storybook app for kids — built with Flutter, Riverpod, and a clean feature-first architecture.
 
-## Screens
+![Flutter](https://img.shields.io/badge/Flutter-02569B?style=flat&logo=flutter&logoColor=white)
+![Dart](https://img.shields.io/badge/Dart-0175C2?style=flat&logo=dart&logoColor=white)
+![Riverpod](https://img.shields.io/badge/State-Riverpod-5A0FC8?style=flat)
+![Status](https://img.shields.io/badge/status-in%20development-yellow)
 
-Splash (animated logo) → Onboarding (3 pages) → bottom-nav shell with Home (featured carousel, categories, book grid), Search (query + category filters), Library (favorites), Profile (stats + settings), plus Book Details and a swipeable story Reader. All book content is mock data served by `BooksService`.
+## 📖 Overview
 
-## Getting started
+BookaBoo helps kids discover and read children's books through a friendly, animated interface. It was built as a university final project, with a focus on clean architecture, smooth navigation, and a gender-neutral pastel design (lavender, mint, warm cream) anchored by a bouncing "baby peeking behind a B" logo.
 
-```bash
+## 📱 Screenshots
+
+| Splash | Home | Reader |
+|--------|------|--------|
+| _add screenshot_ | _add screenshot_ | _add screenshot_ |
+
+## ✨ Features
+
+- 🎬 Animated splash screen with logo bounce & sparkle effects
+- 👋 3-page onboarding flow
+- 🏠 Home with featured carousel, categories, and book grid
+- 🔍 Search with query + category filters
+- ❤️ Library / Favorites
+- 👤 Profile with stats & settings
+- 📖 Swipeable story Reader
+- 🎨 Child-friendly pastel design system
+
+## 🛠️ Tech Stack
+
+- **Flutter** — UI toolkit
+- **Riverpod** (`riverpod_generator`) — state management
+- **GoRouter** — navigation (`StatefulShellRoute` for the 4-tab layout)
+- **Freezed** + **json_serializable** — immutable models
+- **Material Design 3**
+
+## 🏗️ Architecture
+
+Feature-first structure — each feature owns its `views/`, `widgets/`, and local state:
+
+\`\`\`
+lib/
+├── app/            # Root widget (MaterialApp.router)
+├── config/         # Theme & routes
+├── core/widgets/   # Shared UI components
+├── riverpod/       # App-wide providers
+└── features/
+    ├── splash/
+    ├── onboarding/
+    ├── home/
+    ├── search/
+    ├── library/
+    ├── profile/
+    ├── book_details/
+    ├── reader/
+    └── books/       # Shared data layer (BooksService + models)
+\`\`\`
+
+## 🚀 Getting Started
+
+\`\`\`bash
 flutter create .            # adds android/ios/etc. platform folders
 flutter pub get
 dart run build_runner build --delete-conflicting-outputs
 flutter run
-```
+\`\`\`
 
-Note on generated files: the `*.freezed.dart` / `*.g.dart` files in the repo are hand-written bridge stubs so the project compiles immediately after `pub get`. Running `build_runner` (step 3) replaces them with the real generated output — the annotated sources are the single source of truth.
+> **Note:** The `*.freezed.dart` / `*.g.dart` files are hand-written bridge stubs so the project compiles right after `pub get`. Running `build_runner` replaces them with real generated code.
 
-## Architecture
+## 📌 Project Status
 
-```
-lib/
-├── app/                  # Root widget (MaterialApp.router)
-├── config/
-│   ├── theme/            # AppTheme + AppColors (import via theme.dart)
-│   └── routes/           # AppRoute names + GoRouter (import via routes.dart)
-├── core/widgets/         # AppCard, AppButton, AppSearchBar, AppErrorView,
-│                         # AppSkeleton, GradientAppBar, SettingsCard, AppShell
-├── riverpod/             # App-wide providers (books, favorites, settings)
-└── features/
-    ├── splash/           # views/
-    ├── onboarding/       # views/ + widgets/
-    ├── home/             # views/ + widgets/ (featured carousel, categories)
-    ├── search/           # views/ + widgets/ + views/riverpod/ (local state)
-    ├── library/          # views/ + widgets/ (favorites)
-    ├── profile/          # views/ + widgets/ + data/models/ (settings)
-    ├── book_details/     # views/ + widgets/
-    ├── reader/           # views/ + widgets/ (story pages)
-    └── books/            # shared data: BooksService + freezed models + BookCard
-```
+UI and core flows complete. Currently using local mock data via `BooksService` — swapping in a real backend (Supabase/Firebase) is next.
 
-- State: Riverpod with `riverpod_generator` (`@riverpod` / notifier classes).
-- Models: `freezed` + `json_serializable`.
-- Navigation: GoRouter with `StatefulShellRoute.indexedStack` for the 4 tabs; details/reader push on the root navigator.
-- Swap `BooksService` internals for Supabase/Firebase later — the UI only talks to providers.
+## 👩‍💻 Author
 
-## App icon & splash
-
-When you're ready, wire real launch assets with `flutter_launcher_icons` and `flutter_native_splash`.
+Built by **Hibat Allah Turkmany**
