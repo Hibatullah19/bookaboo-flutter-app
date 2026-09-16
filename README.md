@@ -13,14 +13,26 @@ BookaBoo helps kids discover and read children's books through a friendly, anima
 
 ## 📱 Screenshots
 
-|On Boarding| Home | Reader |
-|--------|------|--------|
-|<p align="center">
-  <img src="screenshots/on boarding1.png" width="300">
-  <img src="screenshots/on boarding2.png" width="300"></p>|<p align="center">
-  <img src="screenshots/home.png" width="300"></p> |<p align="center">
-  <img src="screenshots/read1.png" width="300">
-  <img src="screenshots/read2.png" width="300"></p>|
+<table>
+  <tr>
+    <th>Onboarding</th>
+    <th>Home</th>
+    <th>Read</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="screenshots/on boarding1.png" width="200">
+      <img src="screenshots/on boarding2.png" width="200">
+    </td>
+    <td align="center">
+      <img src="screenshots/home.png" width="200">
+    </td>
+    <td align="center">
+      <img src="screenshots/read1.png" width="200">
+      <img src="screenshots/read2.png" width="200">
+    </td>
+  </tr>
+</table>
 
 ## ✨ Features
 
